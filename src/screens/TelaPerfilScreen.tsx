@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useAuth } from '../hooks/useAuth';
 
-export default function ProfileScreen({ navigation }) {
+export default function TelaPerfil({ navigation }) {
   const { user, onLogout } = useAuth();
 
   const handleLogout = async () => {

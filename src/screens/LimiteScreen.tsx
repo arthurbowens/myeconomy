@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { saveLimit, getLimitByMonth, updateLimit, deleteLimit } from '../services/limitService';
+import { saveLimit, getLimitByMonth, updateLimit, deleteLimit } from '../services/LimiteService';
 import { useAuth } from '../hooks/useAuth';
 import { FontAwesome, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
-export default function LimitScreen({ navigation }) {
+export default function Limite({ navigation }) {
   const { user } = useAuth();
   const [valor, setValor] = useState('');
   const [mesCadastro, setMesCadastro] = useState(() => { // Picker para cadastro de limite

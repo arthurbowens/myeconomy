@@ -18,7 +18,7 @@ export default function Login({ navigation }) {
       await onLogin(email, senha);
       navigation.replace("Home");
     } catch (e) {
-      setError(e.message || "Erro ao fazer login. Tente novamente.");
+      setError(e.message || "Erro ao fazer login. Verifique suas credenciais.");
     } finally {
       setLoading(false);
     }
@@ -56,9 +56,7 @@ export default function Login({ navigation }) {
       >
         <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
-      <Text style={styles.link}>
-        Não possui conta ainda? <Text style={{ textDecorationLine: 'underline' }} onPress={() => navigation.navigate("SignUp")}>Crie agora.</Text>
-      </Text>
+      <Text style={styles.link} onPress={() => navigation.navigate("SignUp")}>Criar nova conta</Text>
     </View>
   );
 }

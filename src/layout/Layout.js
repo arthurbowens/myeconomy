@@ -4,10 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "../screens/home/Home";
 import Login from "../screens/login/Login";
-import SignUp from "../screens/login/SignUp";
-import LimitScreen from "../screens/LimitScreen";
-import ExpenseScreen from "../screens/ExpenseScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import Cadastro from "../screens/login/Cadastro.tsx";
+import Limite from "../screens/LimiteScreen.tsx";
+import Despesas from "../screens/DespesasScreen.tsx";
+import TelaPerfil from "../screens/TelaPerfilScreen.tsx";
 import { useAuth } from "../hooks/useAuth";  
 
 const Stack = createNativeStackNavigator();
@@ -28,17 +28,17 @@ export default function Layout() {
               />
               <Stack.Screen
                 name="Limite"
-                component={LimitScreen}
+                component={Limite}
                 options={{ headerTitle: "Limite Mensal" }}
               />
               <Stack.Screen
                 name="Despesas"
-                component={ExpenseScreen}
+                component={Despesas}
                 options={{ headerTitle: "Despesas" }}
               />
               <Stack.Screen
                 name="MeusDados"
-                component={ProfileScreen}
+                component={TelaPerfil}
                 options={{ headerTitle: "Meus Dados" }}
               />
             </>
@@ -51,7 +51,7 @@ export default function Layout() {
               />
               <Stack.Screen
                 name="SignUp"
-                component={SignUp}
+                component={Cadastro}
                 options={{ headerTitle: "Nova conta" }}
               />
             </>

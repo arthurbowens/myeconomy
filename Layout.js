@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./src/screens/home/Home";
 import History from "./src/screens/history/History";
 import Login from "./src/screens/login/Login";
-import SignUp from "./src/screens/login/SignUp";
+import Cadastro from "./src/screens/login/Cadastro";
 import { useAuth } from "./src/hooks/useAuth";  
 
 const Stack = createNativeStackNavigator();
@@ -39,7 +39,7 @@ export default function Layout() {
               />
               <Stack.Screen
                 name="SignUp"
-                component={SignUp}
+                component={Cadastro}
                 options={{ headerTitle: "Nova conta" }}
               />
             </>

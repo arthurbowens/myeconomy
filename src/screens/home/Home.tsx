@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, Alert, TouchableOpacity } from "react-native";
 import { Picker } from '@react-native-picker/picker';
 import { StatusBar } from "expo-status-bar";
-import { getLimitByMonth } from "../../services/limitService";
-import { getExpensesByMonth } from "../../services/expenseService";
+import { getLimitByMonth } from "../../services/LimiteService";
+import { getExpensesByMonth } from "../../services/DespesasService";
 import { useAuth } from "../../hooks/useAuth";
 import { FontAwesome, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 

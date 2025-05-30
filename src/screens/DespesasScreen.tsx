@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, FlatList, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import { saveExpense, getExpensesByMonth, updateExpense, deleteExpense } from '../services/expenseService';
+import { saveExpense, getExpensesByMonth, updateExpense, deleteExpense } from '../services/DespesasService';
 import { useAuth } from '../hooks/useAuth';
 import { FontAwesome, MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
-export default function ExpenseScreen({ navigation }) {
+export default function Despesas({ navigation }) {
   const { user } = useAuth();
   const [descricao, setDescricao] = useState('');
   const [valor, setValor] = useState('');

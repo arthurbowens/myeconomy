@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { useAuth } from "../../hooks/useAuth";
 
-export default function SignUp({ navigation }) {
+export default function Cadastro({ navigation }) {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
