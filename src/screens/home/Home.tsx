@@ -57,6 +57,7 @@ export default function Home({ navigation }) {
         <View style={[styles.card, styles.cardSemInfo]}>
           <Text style={styles.cardTitle}>Olá {user?.nome} 👋</Text>
           <Text style={styles.feedbackText}>É bom te ver por aqui</Text>
+          <MaterialCommunityIcons name="emoticon-neutral-outline" size={60} color="#ffc107" style={styles.feedbackIcon} />
           <Text style={styles.progressText}>Progresso não encontrado</Text>
           <TouchableOpacity style={styles.cardButton} onPress={() => navigation.navigate('Limite')}>
             <Text style={styles.cardButtonText}>COMEÇAR</Text>
@@ -83,6 +84,7 @@ export default function Home({ navigation }) {
         <View style={[styles.card, styles.cardEconomizou]}>
           <Text style={styles.cardTitle}>Olá {user?.nome} 👋</Text>
           <Text style={styles.feedbackText}>É bom te ver por aqui</Text>
+          <FontAwesome name="trophy" size={60} color="gold" style={styles.feedbackIcon} />
           <Text style={styles.progressText}>Parabéns, você economizou!</Text>
           <Text style={styles.valueText}>R$ {feedback.valor.toFixed(2)}</Text>
            {renderBarra(totalExpenses, limit?.valor)}
@@ -95,6 +97,7 @@ export default function Home({ navigation }) {
         <View style={[styles.card, styles.cardNaoEconomizou]}>
           <Text style={styles.cardTitle}>Olá {user?.nome} 👋</Text>
           <Text style={styles.feedbackText}>É bom te ver por aqui</Text>
+          <FontAwesome name="frown-o" size={60} color="orange" style={styles.feedbackIcon} />
           <Text style={styles.progressText}>Objetivo não atingido</Text>
           <Text style={styles.valueText}>-R$ {feedback.valor.toFixed(2)}</Text>
            {renderBarra(totalExpenses, limit?.valor)}
@@ -148,16 +151,16 @@ export default function Home({ navigation }) {
            <FontAwesome name="user" size={24} color="black" />
           <Text style={styles.menuButtonText}>Perfil</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Home')}>
+           <Ionicons name="home" size={24} color="black" />
+          <Text style={styles.menuButtonText}>Home</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Despesas')}>
            <MaterialCommunityIcons name="currency-usd" size={24} color="black" />
           <Text style={styles.menuButtonText}>Despesas</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Limite')}>
-           <MaterialCommunityIcons name="scale-balance" size={24} color="black" />
-          <Text style={styles.menuButtonText}>Limite</Text>
-        </TouchableOpacity>
         {/* O quarto ícone da imagem não tem função clara no documento, vou adicionar um de engrenagem para Configurações se houver necessidade futura */}
-        <TouchableOpacity style={styles.menuButton} onPress={() => Alert.alert('Configurações', 'Funcionalidade não implementada.')}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Limite')}>
            <Ionicons name="settings" size={24} color="black" />
           <Text style={styles.menuButtonText}>Config</Text>
         </TouchableOpacity>
@@ -284,18 +287,20 @@ const styles = StyleSheet.create({
   menuContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '90%',
-    paddingBottom: 16, // Adicionado padding na parte inferior para espaço
+    width: '100%',
+    paddingVertical: 12,
+    paddingBottom: 16,
+    borderTopWidth: 1,
     borderColor: '#ccc',
-    backgroundColor: '#4CAF50', // Fundo verde para o menu
+    backgroundColor: '#4CAF50',
     position: 'absolute',
     bottom: 0,
     left: 0,
+    right: 0,
   },
   menuButton: {
     alignItems: 'center',
     flex: 1,
-    marginHorizontal: 4,
   },
   menuButtonText: {
     color: '#222',
@@ -317,5 +322,8 @@ const styles = StyleSheet.create({
     color: '#222',
     marginBottom: 12,
     textAlign: 'center',
+   },
+   feedbackIcon: {
+    marginBottom: 12,
    },
 });

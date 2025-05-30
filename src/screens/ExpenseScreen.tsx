@@ -118,13 +118,13 @@ export default function ExpenseScreen({ navigation }) {
 
       {/* Formulário de Cadastro */}
       <View style={styles.formContainer}>
+        <TextInput style={styles.input} placeholder="Descrição" value={descricao} onChangeText={setDescricao} />
+        <TextInput style={styles.input} placeholder="Valor" value={valor} onChangeText={setValor} keyboardType="numeric" />
         <View style={styles.pickerContainer}>
           <Picker selectedValue={mesCadastro} onValueChange={setMesCadastro} style={styles.picker}>
             {mesesOptions().map(m => <Picker.Item key={m} label={getMonthName(m)} value={m} />)}
           </Picker>
         </View>
-        <TextInput style={styles.input} placeholder="Descrição" value={descricao} onChangeText={setDescricao} />
-        <TextInput style={styles.input} placeholder="Valor" value={valor} onChangeText={setValor} keyboardType="numeric" />
         <TouchableOpacity style={styles.button} onPress={handleSave}><Text style={styles.buttonText}>SALVAR</Text></TouchableOpacity>
       </View>
 
@@ -157,17 +157,17 @@ export default function ExpenseScreen({ navigation }) {
            <FontAwesome name="user" size={24} color="black" />
           <Text style={styles.menuButtonText}>Perfil</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Home')}>
+           <Ionicons name="home" size={24} color="black" />
+          <Text style={styles.menuButtonText}>Home</Text>
+        </TouchableOpacity>
         <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Despesas')}>
            <MaterialCommunityIcons name="currency-usd" size={24} color="black" />
           <Text style={styles.menuButtonText}>Despesas</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Limite')}>
-           <MaterialCommunityIcons name="scale-balance" size={24} color="black" />
-          <Text style={styles.menuButtonText}>Limite</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('Home')}>
-           <Ionicons name="home" size={24} color="black" />
-          <Text style={styles.menuButtonText}>Home</Text>
+           <Ionicons name="settings" size={24} color="black" />
+          <Text style={styles.menuButtonText}>Config</Text>
         </TouchableOpacity>
       </View>
     </View>
